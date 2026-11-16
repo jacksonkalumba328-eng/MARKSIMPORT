@@ -1,0 +1,29 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Calibri;}}
+\viewkind4\uc1\pard\f0\fs24
+\b ICT261 Unit 4 Lab: Exception Handling\b0\par
+\par
+\b Activity A: Predict and explain\b0\par
+\par
+1. Integer.parseInt("ABC") throws NumberFormatException, an unchecked exception. Validate the text or catch the exception before using the value.\par
+\par
+2. Calling length() on a null name throws NullPointerException, an unchecked exception. Check that the reference is not null before calling a method on it.\par
+\par
+3. Opening a missing file with FileReader can throw FileNotFoundException, a checked exception. Catch it or declare it with throws.\par
+\par
+OutOfMemoryError means the JVM cannot allocate the memory it needs. Continuing after this error is generally unsafe because the application may not have enough resources to recover reliably.\par
+\par
+\b Activity D: Short answers\b0\par
+\par
+1. IOException is checked. importMarks declares it with throws IOException because file reading can fail and the caller must handle or declare that possibility.\par
+\par
+2. throw raises an exception at runtime, for example: throw new DuplicateStudentException("Duplicate student ID: " + id). throws declares a possible exception in a method signature, for example: static void importMarks(String filename) throws IOException.\par
+\par
+3. A friendly message tells the user what happened and what they can do without exposing implementation details. The logger records the technical exception details so a developer can diagnose the problem.\par
+\par
+4. An empty catch block hides the problem and makes failures difficult to diagnose. Catching Exception before FileNotFoundException makes the later, more specific catch unreachable.\par
+\par
+\b Recovery strategy\b0\par
+\par
+This importer skips an invalid record and continues reading the remaining records. One malformed mark or duplicate ID therefore does not prevent other students' valid marks from being imported. This is appropriate for a batch file because the program can report individual problems while still processing usable records.\par
+}
